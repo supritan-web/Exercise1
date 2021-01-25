@@ -69,12 +69,33 @@ public class ContentsHeadingsPage extends PageObject {
 	}
 	
 	
-	@Step
+	@Step @Test
 	public void personifiedConcepts() {
 		
-		Actions builder = new Actions(webdriver);
-		builder.moveToElement(personifiedConcepts).build().perform();
-		System.out.println(webdriver.switchTo().alert().getText());
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://en.wikipedia.org/wiki/Metis_(mythology)");
+		driver.manage().window().maximize();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0, 900)");
+		Actions builder = new Actions(driver);
+		
+		WebElement perCon = driver.findElement(By.xpath("//a[text()='Nike']"));
+		
+		//c) in the _Personified concepts_, `Nike` has a popup that contains the following text:
+		// In ancient Greek religion, Nike was a goddess who personified victory. Her Roman equivalent was Victoria.
+
+		builder.moveToElement(perCon).perform();
+		
+		perCon.click();
+		
+		// (d) in the _Personified concepts_, if you click on `Nike`, it takes you to a page that displays a family tree
+		
+		WebElement perNike = driver.findElement(By.xpath("//*[@id='Family_tree']"));
+		System.out.println(perNike.getText());
+		assertEquals("Family tree", perNike.getText());
+		
+		driver.quit();
 	}
 	
 }	
