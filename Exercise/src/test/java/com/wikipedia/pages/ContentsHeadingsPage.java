@@ -48,7 +48,8 @@ public class ContentsHeadingsPage extends PageObject {
 		for (int i = 0; i < links.size(); i++)
 		{
 		    
-		    // validate if it a header (tag is a header)
+		    // a) the headings listed in the `Contents` box are used as headings on the page
+			
 		    List<WebElement> listHeader = contentListHeader.findElements(By.tagName("h2"));
 		    
 		    	if (listHeader.get(i+1).getText().contains(links.get(i).getText().substring(2))) 
@@ -62,6 +63,8 @@ public class ContentsHeadingsPage extends PageObject {
 	public void validatelistClickable() {
 		List<WebElement> links = contentList.findElements(By.tagName("li"));
 		
+		b) the headings listed in the `Contents` box have functioning hyperlinks
+			
 		for (int i = 0; i < links.size(); i++)
 		{
 			String clickable = links + "[" + i+1 + "]/a" ;
