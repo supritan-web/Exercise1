@@ -82,10 +82,15 @@ public class ContentsHeadingsPage extends PageObject {
 		
 		WebElement perCon = driver.findElement(By.xpath("//a[text()='Nike']"));
 		
-		//c) in the _Personified concepts_, `Nike` has a popup that contains the following text:
-		// In ancient Greek religion, Nike was a goddess who personified victory. Her Roman equivalent was Victoria.
+		// (c) in the _Personified concepts_, `Nike` has a popup that contains the following text:
+		// In ancient Greek civilization, Nike was a goddess who personified victory. Her Roman equivalent was Victoria.
 
 		builder.moveToElement(perCon).perform();
+		
+		Thread.sleep(7000);
+		WebElement perText = driver.findElement(By.xpath("//a[@class='mwe-popups-extract']/p"));
+			
+		assertEquals("In ancient Greek civilization, Nike was a goddess who personified victory. Her Roman equivalent was Victoria.", perText.getText());
 		
 		perCon.click();
 		
