@@ -17,4 +17,3 @@ Feature: Wikipedia features
   Scenario: The headings listed in the `Contents` box have functioning hyperlinks
     Given user is on Wikipedia page
     When user hovers over Nike
-    Then validate personified concepts
