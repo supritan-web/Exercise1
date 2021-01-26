@@ -14,6 +14,6 @@ Feature: Wikipedia features
     Then lists are clickable
 
   @contents
-  Scenario: The headings listed in the `Contents` box have functioning hyperlinks
+  Scenario: Personified concepts
     Given user is on Wikipedia page
     When user hovers over Nike
