@@ -44,9 +44,5 @@ public class ContentsHeadingsStepDefinitions {
 		contentsHeadingsPage.personifiedConcepts();
 	}
 
-	@Then("validate personified concepts")
-	public void validate_personified_concepts() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
+	
 }
